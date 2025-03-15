@@ -33,17 +33,6 @@ def clean_excel(
     df.columns = df.columns.str.strip()
     df_codes.columns = df_codes.columns.str.strip()
 
-    # Ensure the specified column exists in both DataFrames
-    if column_name not in df.columns:
-        print(f"Error: Column '{column_name}' not found in input file.")
-        print("Available columns:", df.columns.tolist())
-        return
-
-    if codes_column not in df_codes.columns:
-        print(f"Error: Column '{codes_column}' not found in codes file.")
-        print("Available columns:", df_codes.columns.tolist())
-        return
-
     # Convert columns to string to ensure correct matching
     df[column_name] = df[column_name].astype(str).str.strip()
     df_codes[codes_column] = df_codes[codes_column].astype(str).str.strip()
